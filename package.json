@@ -1,0 +1,20 @@
+{
+  "name": "fullbadbank-kristinamoran",
+  "version": "1.0.0",
+  "description": "This is a Front end React app that allows you to create an account, make a deposit, make a withdrawal, and see your balance. This was developed using Bootstrap. It is a project for MIT xPro's MERN stact certificate program.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KristinaMoran/badbank.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KristinaMoran/badbank/issues"
+  },
+  "homepage": "https://github.com/KristinaMoran/badbank#readme"
+}
