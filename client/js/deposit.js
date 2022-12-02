@@ -60,3 +60,5 @@ function Deposit() {
     />
   );
 }
+
+// export default Deposit;

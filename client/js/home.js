@@ -5,7 +5,15 @@ function Home() {
       header="Bank of Scrooge est.1967"
       title="No Security Banking"
       text="We steal your money while we charge you fees"
-      body={<img src="bank.png" className="img-fluid" alt="Responsive image" />}
+      body={
+        <img
+          src="../assets/bank.png"
+          className="img-fluid"
+          alt="Responsive image"
+        />
+      }
     />
   );
 }
+
+// export default Home;

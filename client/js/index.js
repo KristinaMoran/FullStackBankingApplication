@@ -1,3 +1,10 @@
+// import Withdraw from "./withdraw";
+// import Home from "./home";
+// import CreateAccount from "./createaccount";
+// import Login from "./login";
+// import Deposit from "./deposit";
+// import AllData from "./alldata";
+
 function Spa(props, state) {
   return (
     <HashRouter>
@@ -29,3 +36,5 @@ function Spa(props, state) {
 }
 
 ReactDOM.render(<Spa />, document.getElementById("root"));
+
+// export default Spa;
