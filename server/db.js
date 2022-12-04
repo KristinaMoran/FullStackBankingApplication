@@ -1,6 +1,7 @@
 const pg = require("pg"); // POSTGRES
-const pgUrl =
-  "postgres://roozknyn:0qhW3ZtZTHbFbg_QMq_ahtk4BBUV4I8j@peanut.db.elephantsql.com/roozknyn";
+require("dotenv").config();
+const pgUrl = process.env.PG_URL;
+console.log("pgurl", pgUrl);
 const pool = new pg.Pool({ connectionString: pgUrl });
 
 //EXPORT QUERY FUNCTION THAT RETURNS A QUERY OF THE POOL

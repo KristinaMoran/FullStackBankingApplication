@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 // const db = require("./db");
 const userController = require("./controllers/userController");
+
 //app
 const app = express();
 
