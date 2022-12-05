@@ -1,6 +1,7 @@
 function Deposit() {
   const ctx = React.useContext(UserContext);
-  let inUser = ctx.loggedIn[0];
+  let inUser = ctx.loggedIn;
+
   const [update, setUpdate] = React.useState("false");
   const [value, setValue] = React.useState("");
   const [show, setShow] = React.useState(true);
@@ -9,14 +10,25 @@ function Deposit() {
     setValue(event.target.value);
   };
 
-  function handleDeposit() {
-    let balance = document.getElementById("balance").value;
-    if (balance > 0 && !isNaN(balance)) {
-      inUser.user.balance += Number(balance);
-      setUpdate(true);
+  async function handleDeposit() {
+    // let balance = document.getElementById("balance").value;
+    // if (balance > 0 && !isNaN(balance)) {
+    //   inUser.user.balance += Number(balance);
+    //   setUpdate(true);
+    //   setShow(false);
+    // } else {
+    //   alert("Must be a positive number");
+    // }
+    const response = await postData("/deposit", {
+      amount: value,
+      balance: inUser.balance,
+      email: inUser.email,
+    });
+    console.log(response);
+    if (response) {
+      console.log("success");
+      ctx.loggedIn.balance = response.balance;
       setShow(false);
-    } else {
-      alert("Must be a positive number");
     }
   }
 
@@ -30,8 +42,8 @@ function Deposit() {
             <>
               <h5>
                 {update
-                  ? "Balance: " + inUser.user.balance
-                  : "Balance: " + inUser.user.balance}
+                  ? "Balance: " + inUser.balance
+                  : "Balance: " + inUser.balance}
               </h5>
               <h6>Deposit Amount</h6>
               <input
@@ -54,7 +66,7 @@ function Deposit() {
             "Please Log In"
           )
         ) : (
-          "Success! Balance: $" + inUser.user.balance
+          "Success! Balance: $" + inUser.balance
         )
       }
     />

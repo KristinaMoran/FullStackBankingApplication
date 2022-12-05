@@ -18,10 +18,10 @@ app.get("/", userController.dbCheck, (request, response) => {
     .sendFile(path.join(__dirname, "../client/assets/index.html"));
 });
 
-app.post("/create", userController.createAccount, (request, response) => {
-  response.status(201).json({ success: true });
-});
+app.post("/create", userController.createAccount, userController.logInUser);
 app.post("/verify", userController.logInUser);
+app.post("/deposit", userController.deposit, userController.checkBalance);
+app.post("/withdraw", userController.withdraw, userController.checkBalance);
 app.listen(3000, () => {
   console.log("server started at 3000");
 });

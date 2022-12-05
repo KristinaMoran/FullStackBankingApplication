@@ -42,9 +42,9 @@ function CreateAccount() {
     // if (!validate(password, "password")) return;
     const response = await postData("/create", { email, password });
     console.log("response", response);
-    if (response.success) {
+    if (response) {
       setShow(false);
-      ctx.users.push({ email, password, balance: 100 });
+      ctx.users.push(response);
     }
   }
 
@@ -88,7 +88,7 @@ function CreateAccount() {
             <br />
             <button
               type="submit"
-              disabled={name && email && password ? false : true}
+              disabled={email && password ? false : true}
               className="btn btn-light"
               onClick={handleCreate}
             >

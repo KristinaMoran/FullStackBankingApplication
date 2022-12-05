@@ -18,7 +18,7 @@ function Spa(props, state) {
               balance: 100,
             },
           ],
-          loggedIn: [],
+          loggedIn: null,
         }}
       >
         <NavBar />
@@ -28,7 +28,6 @@ function Spa(props, state) {
           <Route path="/login/" component={Login} />
           <Route path="/deposit/" component={Deposit} />
           <Route path="/withdraw/" component={Withdraw} />
-          <Route path="/alldata/" component={AllData} />
         </div>
       </UserContext.Provider>
     </HashRouter>
