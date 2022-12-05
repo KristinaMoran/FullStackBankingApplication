@@ -3,6 +3,25 @@ const Link = ReactRouterDOM.Link;
 const HashRouter = ReactRouterDOM.HashRouter;
 const UserContext = React.createContext(null);
 
+function UpdateContext(props) {
+  const [state, setState] = React.useState({ loggedIn: null });
+
+  const updateUser = (data) => {
+    setState({ ...state, loggedIn: data });
+  };
+
+  return (
+    <UserContext.Provider
+      value={{
+        ...state,
+        updateUser,
+      }}
+    >
+      {props.children}
+    </UserContext.Provider>
+  );
+}
+
 function Card(props) {
   function classes() {
     const bg = props.bgcolor ? " bg-" + props.bgcolor : " ";

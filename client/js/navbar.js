@@ -61,17 +61,6 @@ function NavBar() {
                 Withdraw
               </a>
             </li>
-            <li className="nav-item">
-              <a
-                className="nav-link"
-                href="#/alldata/"
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="View users"
-              >
-                AllData
-              </a>
-            </li>
           </ul>
         </div>
       </nav>

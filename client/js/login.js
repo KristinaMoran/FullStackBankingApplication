@@ -36,7 +36,7 @@ function Login() {
     const response = await postData("/verify", { email, password });
     console.log("response", response);
     if (response) {
-      ctx.loggedIn = response;
+      ctx.updateUser(response);
       setShow(false);
     }
   }
