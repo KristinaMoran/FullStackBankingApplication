@@ -35,13 +35,17 @@ function CreateAccount() {
     }
   }
 
-  function handleCreate() {
+  async function handleCreate() {
     console.log(name, email, password);
-    if (!validate(name, "name")) return;
-    if (!validate(email, "email")) return;
-    if (!validate(password, "password")) return;
-    ctx.users.push({ name, email, password, balance: 100 });
-    setShow(false);
+    // if (!validate(name, "name")) return;
+    // if (!validate(email, "email")) return;
+    // if (!validate(password, "password")) return;
+    const response = await postData("/create", { email, password });
+    console.log("response", response);
+    if (response.success) {
+      setShow(false);
+      ctx.users.push({ email, password, balance: 100 });
+    }
   }
 
   function clearForm() {
@@ -60,17 +64,6 @@ function CreateAccount() {
       body={
         show ? (
           <>
-            Name
-            <br />
-            <input
-              type="input"
-              className="form-control"
-              id="name"
-              placeholder="Enter name"
-              value={name}
-              onChange={(e) => setName(e.currentTarget.value)}
-            />
-            <br />
             Email address
             <br />
             <input

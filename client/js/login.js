@@ -14,24 +14,29 @@ function Login() {
     return true;
   }
 
-  function handleLogin() {
-    if (!validate(email, "email")) return;
-    if (!validate(password, "password")) return;
-    const user = ctx.users.find((user) => user.email == email);
-    if (!user) {
-      setStatus("Invalid User");
-      setTimeout(() => setStatus(""), 3000);
-      return;
-    }
-    if (user.password == password) {
-      setShow(false);
-      ctx.loggedIn.push({ user });
-      console.log(ctx);
-      return;
-    } else {
-      setStatus("Invalid Password");
-      setTimeout(() => setStatus(""), 3000);
-      return;
+  async function handleLogin() {
+    // if (!validate(email, "email")) return;
+    // if (!validate(password, "password")) return;
+    // const user = ctx.users.find((user) => user.email == email);
+    // if (!user) {
+    //   setStatus("Invalid User");
+    //   setTimeout(() => setStatus(""), 3000);
+    //   return;
+    // }
+    // if (user.password == password) {
+    //   setShow(false);
+    //   ctx.loggedIn.push({ user });
+    //   console.log(ctx);
+    //   return;
+    // } else {
+    //   setStatus("Invalid Password");
+    //   setTimeout(() => setStatus(""), 3000);
+    //   return;
+    // }
+    const response = await postData("/verify", { email, password });
+    console.log("response", response);
+    if (response) {
+      ctx.users.push(response);
     }
   }
 
