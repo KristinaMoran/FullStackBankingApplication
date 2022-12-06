@@ -17,13 +17,13 @@ app.get("/", userController.dbCheck, (request, response) => {
     .status(200)
     .sendFile(path.join(__dirname, "../client/assets/index.html"));
 });
-
+const port = $PORT || 5000;
 app.post("/create", userController.createAccount, userController.logInUser);
 app.post("/verify", userController.logInUser);
 app.post("/deposit", userController.deposit, userController.checkBalance);
 app.post("/withdraw", userController.withdraw, userController.checkBalance);
-app.listen($PORT || 5000, () => {
-  // console.log("server started at 5000");
+app.listen(port, () => {
+  console.log("server started at " + port);
 });
 
 module.exports = app;
