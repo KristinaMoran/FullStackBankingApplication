@@ -22,7 +22,7 @@ app.post("/create", userController.createAccount, userController.logInUser);
 app.post("/verify", userController.logInUser);
 app.post("/deposit", userController.deposit, userController.checkBalance);
 app.post("/withdraw", userController.withdraw, userController.checkBalance);
-app.listen(3000, () => {
+app.listen(5000, () => {
   console.log("server started at 3000");
 });
 
