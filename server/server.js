@@ -17,7 +17,7 @@ app.get("/", userController.dbCheck, (request, response) => {
     .status(200)
     .sendFile(path.join(__dirname, "../client/assets/index.html"));
 });
-const port = $PORT || 5000;
+const port = process.env.PORT || 5000;
 app.post("/create", userController.createAccount, userController.logInUser);
 app.post("/verify", userController.logInUser);
 app.post("/deposit", userController.deposit, userController.checkBalance);
