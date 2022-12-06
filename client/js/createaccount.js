@@ -38,8 +38,8 @@ function CreateAccount() {
   async function handleCreate() {
     console.log(name, email, password);
     // if (!validate(name, "name")) return;
-    // if (!validate(email, "email")) return;
-    // if (!validate(password, "password")) return;
+    if (!validate(email, "email")) return;
+    if (!validate(password, "password")) return;
     const response = await postData("/create", { email, password });
     console.log("response", response);
     if (response) {
